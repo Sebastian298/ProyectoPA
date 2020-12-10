@@ -1,0 +1,30 @@
+﻿@model ProyectoSistemaIntegral.Models.Categorias
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="mt-4">
+    <h3 class="text-warning" style="margin-top:100px">¿Está usted seguro de eliminar la siguiente categoría?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

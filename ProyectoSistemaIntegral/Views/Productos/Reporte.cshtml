@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<div class="row mt-4">
+    <div class="col col-md-12 mt-5">
+        <h2>Productos ingresados en el día: @DateTime.Today.ToString("D")</h2>
+        <table class="table table-hover">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Categorias.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Proveedores.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaIngreso)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                <tr class="text-info">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categorias.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Proveedores.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaIngreso)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<br />
+@section styles{
+    @Styles.Render("~/Content/css")
+}

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Categorias>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p style="margin-top:100px">
+    <h2>Categorías</h2>
+    @Html.ActionLink("Nueva categoría", "Create", new { @class = "btn btn-primary", role = "button" })
+</p>
+<div class="row">
+    <div class="col col-md-12 mt-4">
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>Acciones</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning", role = "button" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-info", role = "button" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger", role = "button" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

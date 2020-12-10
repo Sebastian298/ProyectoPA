@@ -1,0 +1,33 @@
+﻿@model ProyectoSistemaIntegral.Models.Ventas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4 style="margin-top:100px">Detalles de la venta</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Productos.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Productos.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVenta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VentaID }, new { @class = "btn btn-warning", role = "button" }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
