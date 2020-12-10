@@ -93,3 +93,6 @@ C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\ob
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Modificacion_Fecha_Ventas.resources
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Fecha_venta.resources
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\Rotativa.dll
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Model_Usuarios.resources
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.User_table.resources
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Usuarios_Delete.resources

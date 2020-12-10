@@ -74,8 +74,12 @@
             }
 
         </table>
-        <h5>Generar reporte de los productos ingresados en el día actual</h5>
-        @Html.ActionLink("Generar Reporte", "Print", new { @class = "btn btn-primary", role = "button" })
+        <div class="col col-md-12 mt-5">
+            <h5>Generar reporte del día</h5>
+            @Html.ActionLink("Generar Reporte", "Print", new { @class = "btn btn-primary", role = "button" })
+        </div>
+       
+
     </div>
 </div>
 <br />

@@ -16,9 +16,34 @@ namespace ProyectoSistemaIntegral.Controllers
         private GestorContext db = new GestorContext();
 
         // GET: Proveedores
-        public ActionResult Index()
+        public ActionResult Index(string strOrdenamiento, string strBusqueda)
         {
-            return View(db.Proveedores.ToList());
+            ViewBag.CurrentSort = strOrdenamiento;
+            ViewBag.NombreSortParm = String.IsNullOrEmpty(strOrdenamiento) ? "nombre_desc" : "";
+            ViewBag.CorreoSortParm = strOrdenamiento == "Correo" ? "correo_desc" : "Correo";
+            var proveedores = db.Proveedores.AsEnumerable();
+            proveedores = from s in db.Proveedores
+                        select s;
+            if (!String.IsNullOrEmpty(strBusqueda))
+            {
+                proveedores = proveedores.Where(a => a.Nombre.Contains(strBusqueda)| a.CorreoElectronico.Contains(strBusqueda));
+            }
+            switch (strOrdenamiento)
+            {
+                case "nombre_desc":
+                    proveedores = proveedores.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Correo":
+                    proveedores = proveedores.OrderBy(s => s.CorreoElectronico);
+                    break;
+                case "correo_desc":
+                    proveedores = proveedores.OrderByDescending(s => s.CorreoElectronico);
+                    break;
+                default:
+                    proveedores = proveedores.OrderBy(s => s.Nombre);
+                    break;
+            }
+            return View(proveedores.ToList());
         }
 
         // GET: Proveedores/Details/5
