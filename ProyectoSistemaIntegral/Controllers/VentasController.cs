@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using PagedList;
 using ProyectoSistemaIntegral.BD;
 using ProyectoSistemaIntegral.Models;
+using Rotativa;
 
 namespace ProyectoSistemaIntegral.Controllers
 {
@@ -38,10 +39,10 @@ namespace ProyectoSistemaIntegral.Controllers
             switch (strOrdenamiento)
             {
                 case "date_desc":
-                    ventas = ventas.OrderByDescending(s => s.FechaVenta);
+                    ventas = ventas.OrderBy(s => s.FechaVenta);
                     break;
                 default:
-                    ventas = ventas.OrderBy(s => s.FechaVenta);
+                    ventas = ventas.OrderByDescending(s => s.FechaVenta);
                     break;
             }
             //return View(productos.ToList());
@@ -156,6 +157,20 @@ namespace ProyectoSistemaIntegral.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Reporte()
+        {
+            var ventas = db.Ventas.AsEnumerable();
+            ventas = from s in db.Ventas
+                     where s.FechaVenta == DateTime.Today
+                        select s;
+            return View(ventas.ToList());
+        }
+
+        public ActionResult Print()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "Ventas.pdf" };
         }
     }
 }

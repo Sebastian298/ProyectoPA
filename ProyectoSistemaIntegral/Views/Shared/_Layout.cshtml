@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="https://kit.fontawesome.com/8b850b0e85.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-primary bg-primary">
@@ -28,7 +29,9 @@
                 <li class="nav-item active">
                     @Html.ActionLink("Ventas", "Index", "Ventas", new { area = "" }, new { @class = "nav-link" })
                 </li>
+
             </ul>
+            <i class="fas fa-window-close offset-8" id="closeBtn"></i>
         </div>
     </nav>
     <div class="container body-content">
@@ -43,5 +46,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        closeBtn.addEventListener("click", function () {
+            window.close();
+        });
+  
+    </script>
 </body>
 </html>

@@ -65,6 +65,9 @@
 
         @Html.PagedListPager(Model, pagina => Url.Action("Index",
             new { pagina, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+        <h5>Generar reporte del día</h5>
+        @Html.ActionLink("Generar Reporte", "Print", new { @class = "btn btn-primary", role = "button" })
     </div>
 </div>
 

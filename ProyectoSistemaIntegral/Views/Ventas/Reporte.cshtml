@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Ventas>
+@{
+    ViewBag.Title = "Reporte";
+    Layout = null;
+    double total = 0.0;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="row mt-4">
+    <div class="col col-md-12 mt-5">
+        <h2>Reporte de las ventas en el día: @DateTime.Today.ToString("D")</h2>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Productos.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Productos.Precio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaVenta)
+                    </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+
+                <tr class="text-info">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Productos.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Productos.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaVenta)
+                    </td>
+                </tr>
+                total += item.Productos.Precio;
+            }
+
+        </table>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Venta total del día</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            <th scope="row">Venta total</th>
+            <td>@total.ToString("C")</td>
+        </tr>
+    </tbody>
+</table>
+
+<footer>
+    <p>&copy; @DateTime.Now.Year - Gestor de productos</p>
+</footer>
