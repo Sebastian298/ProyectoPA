@@ -23,24 +23,27 @@
             </p>
         }
         <table class="table table-hover">
-            <tr>
-                <th>
-                    @Html.ActionLink("Nombre", "Index", new { strOrdenamiento = ViewBag.NombreSortParm })
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().Direccion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().CodigoPostal)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().Telefono)
-                </th>
-                <th>
-                    @Html.ActionLink("Correo Electronico", "Index", new { strOrdenamiento = ViewBag.CorreoSortParm })
-                </th>
-                <th>Acciones</th>
-            </tr>
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.ActionLink("Nombre", "Index", new { strOrdenamiento = ViewBag.NombreSortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Direccion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().CodigoPostal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Telefono)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Correo Electronico", "Index", new { strOrdenamiento = ViewBag.CorreoSortParm })
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            
 
             @foreach (var item in Model)
             {

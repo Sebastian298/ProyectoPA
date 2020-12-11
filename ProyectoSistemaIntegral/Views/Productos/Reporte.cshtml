@@ -4,32 +4,35 @@
     ViewBag.Title = "Index";
     Layout = null;
 }
-
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <div class="row mt-4">
     <div class="col col-md-12 mt-5">
         <h2>Productos ingresados en el día: @DateTime.Today.ToString("D")</h2>
         <table class="table table-hover">
-            <tr>
+            <thead class="thead-dark">
+                <tr>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Categorias.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Proveedores.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Descripcion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Precio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FechaIngreso)
-                </th>
-            </tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Categorias.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Proveedores.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaIngreso)
+                    </th>
+                </tr>
+            </thead>
+
 
             @foreach (var item in Model)
             {
@@ -60,7 +63,6 @@
         </table>
     </div>
 </div>
-<br />
-@section styles{
-    @Styles.Render("~/Content/css")
-}
+<footer>
+    <p>&copy; @DateTime.Now.Year - Gestor de productos</p>
+</footer>

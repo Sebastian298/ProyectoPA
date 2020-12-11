@@ -16,34 +16,36 @@
         @using (Html.BeginForm())
         {
 
-            <p>
-                Busqueda por Nombre del producto: @Html.TextBox("strBusqueda")
-                <button type="submit" class="btn btn-success">Buscar</button>
-            </p>
+    <p>
+        Busqueda por Nombre del producto: @Html.TextBox("strBusqueda")
+        <button type="submit" class="btn btn-success">Buscar</button>
+    </p>
         }
         <table class="table table-hover">
-            <tr>
+            <thead class="thead-dark">
+                <tr>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().Categorias.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().Proveedores.Nombre)
-                </th>
-                <th>
-                    @Html.ActionLink("Nombre Producto", "Index", new { strOrdenamiento = ViewBag.NombreSortParm })
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().Descripcion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().Precio)
-                </th>
-                <th>
-                    @Html.ActionLink("Fecha Ingreso", "Index", new { strOrdenamiento = ViewBag.DateSortParm })
-                </th>
-                <th>Acciones</th>
-            </tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Categorias.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Proveedores.Nombre)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Nombre Producto", "Index", new { strOrdenamiento = ViewBag.NombreSortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Precio)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Fecha Ingreso", "Index", new { strOrdenamiento = ViewBag.DateSortParm })
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
 
             @foreach (var item in Model)
             {

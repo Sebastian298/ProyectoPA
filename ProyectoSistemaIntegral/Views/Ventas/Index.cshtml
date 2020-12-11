@@ -1,10 +1,12 @@
-﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Ventas>
+﻿@model PagedList.IPagedList<ProyectoSistemaIntegral.Models.Ventas>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
 
 <p style="margin-top:100px">
     <h2>Ventas</h2>
@@ -12,19 +14,29 @@
 </p>
 <div class="row">
     <div class="col col-md-12 mt-4">
+        @using (Html.BeginForm())
+        {
+
+        <p>
+            Busqueda por Fecha de venta: @Html.TextBox("strBusqueda")
+            <button type="submit" class="btn btn-success">Buscar</button>
+        </p>
+        }
         <table class="table table-hover">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Productos.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FechaVenta)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Productos.Precio)
-                </th>
-                <th>Acciones</th>
-            </tr>
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Productos.Nombre)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Fecha de venta", "Index", new { strOrdenamiento = ViewBag.DateSortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Productos.Precio)
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
 
             @foreach (var item in Model)
             {
@@ -36,7 +48,7 @@
                         @Html.DisplayFor(modelItem => item.FechaVenta)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem=>item.Productos.Precio)
+                        @Html.DisplayFor(modelItem => item.Productos.Precio)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.VentaID }, new { @class = "btn btn-warning", role = "button" }) |
@@ -47,6 +59,12 @@
             }
 
         </table>
+    </div>
+    <div class="col col-md-12">
+        Mostrando @Model.FirstItemOnPage a @Model.LastItemOnPage de @Model.TotalItemCount Productos
+
+        @Html.PagedListPager(Model, pagina => Url.Action("Index",
+            new { pagina, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
     </div>
 </div>
 

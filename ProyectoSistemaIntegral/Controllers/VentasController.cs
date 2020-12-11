@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using ProyectoSistemaIntegral.BD;
 using ProyectoSistemaIntegral.Models;
 
@@ -16,10 +17,37 @@ namespace ProyectoSistemaIntegral.Controllers
         private GestorContext db = new GestorContext();
 
         // GET: Ventas
-        public ActionResult Index()
+        public ActionResult Index(string strOrdenamiento, string currentFilter, string strBusqueda, int? pagina)
         {
-            var ventas = db.Ventas.Include(v => v.Productos);
-            return View(ventas.ToList());
+            ViewBag.CurrentSort = strOrdenamiento;
+            ViewBag.DateSortParm = String.IsNullOrEmpty(strOrdenamiento) ? "date_desc" : "";
+            ViewBag.PrecioSortParam = strOrdenamiento == "Precio" ? "precio_desc" : "Precio";
+            if (strBusqueda != null)
+            {
+                pagina = 1;
+            }
+            else
+                strBusqueda = currentFilter;
+            var ventas = db.Ventas.AsEnumerable();
+            ventas = from v in db.Ventas
+                     select v;
+            if (!String.IsNullOrEmpty(strBusqueda))
+            {
+                ventas = ventas.Where(a => a.FechaVenta==DateTime.Parse(strBusqueda));
+            }
+            switch (strOrdenamiento)
+            {
+                case "date_desc":
+                    ventas = ventas.OrderByDescending(s => s.FechaVenta);
+                    break;
+                default:
+                    ventas = ventas.OrderBy(s => s.FechaVenta);
+                    break;
+            }
+            //return View(productos.ToList());
+            int pageSize = 4;
+            int pageNumber = (pagina ?? 1);
+            return View(ventas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Ventas/Details/5
