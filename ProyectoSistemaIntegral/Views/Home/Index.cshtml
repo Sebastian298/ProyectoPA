@@ -2,30 +2,51 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="jumbotron mt-5 col-12">
+    <h1>Sistema Integral de Productos</h1>
+    <p class="lead">Donde la persona encargada en la administración de la empresa, podra tener un amplio control en el manejo de sus productos,
+    proveedores, categorias y ventas que maneje su local.</p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://image.freepik.com/vector-gratis/dibujos-animados-productos-supermercado_24640-55629.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Productos</h5>
+                <p class="card-text">En este modulo se manejaran las funcionalidades de agregar,mostrar,editar y eliminar cualquier tipo de producto manejado en su negocio.</p>
+                <a href="@Url.Action("Index","Productos")" class="btn btn-primary">Entrar</a>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://cdn.palbin.com/images/blog/gallery/ideas-de-productos-para-vender-por-internet_1.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Categorías de productos</h5>
+                    <p class="card-text">En este modulo podra agregar nuevas categorías de productos a su negocio, con la facilidad de poder editarlos, consultarlos y eliminarlos.</p>
+                    <a href="@Url.Action("Index","Categorias")" class="btn btn-primary">Entrar</a>
+                </div>
+            </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://i.pinimg.com/originals/fa/a9/7b/faa97b08004e0d7e789a12f87d57a033.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Proveedores</h5>
+                <p class="card-text">En este modulo podra tener administrado los proveedores de su negocio, con funcionalida de podre agregar nuevos proveedores, editarlos y eliminarlos.</p>
+                <a href="@Url.Action("Index","Proveedores")" class="btn btn-primary">Entrar</a>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://e7.pngegg.com/pngimages/68/442/png-clipart-management-empresa-organization-business-manager-argentina-service-people.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Ventas</h5>
+                <p class="card-text">En este modulo podra tener control de las ventas realizadas día con día en su negocio, con la funcionalidad de poder agregar ventas, editarlas si hay algun error, y eliminarlas si se requiera.</p>
+                <a href="@Url.Action("Index","Ventas")" class="btn btn-primary">Entrar</a>
+            </div>
+        </div>
+        </div>
+    </div>
