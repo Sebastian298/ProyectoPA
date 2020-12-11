@@ -96,3 +96,7 @@ C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bi
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Model_Usuarios.resources
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.User_table.resources
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Usuarios_Delete.resources
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.dll
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.Mvc.dll
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.xml
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.Mvc.xml

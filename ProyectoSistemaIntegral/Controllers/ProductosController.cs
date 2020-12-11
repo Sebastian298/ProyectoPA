@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using ProyectoSistemaIntegral.BD;
 using ProyectoSistemaIntegral.Models;
 using Rotativa;
@@ -17,11 +18,18 @@ namespace ProyectoSistemaIntegral.Controllers
         private GestorContext db = new GestorContext();
 
         // GET: Productos
-        public ActionResult Index(string strOrdenamiento, string strBusqueda)
+        public ActionResult Index(string strOrdenamiento, string currentFilter,string strBusqueda, int? pagina)
         {
             ViewBag.CurrentSort = strOrdenamiento;
             ViewBag.NombreSortParm = String.IsNullOrEmpty(strOrdenamiento) ? "nombre_desc" : "";
             ViewBag.DateSortParm = strOrdenamiento == "Fecha" ? "fecha_desc" : "Fecha";
+            if (strBusqueda != null)
+            {
+                pagina = 1;
+            }
+            else
+                strBusqueda = currentFilter;
+
             var productos = db.Productos.AsEnumerable();
             productos = from s in db.Productos
                         select s;
@@ -44,7 +52,10 @@ namespace ProyectoSistemaIntegral.Controllers
                     productos = productos.OrderBy(s => s.Nombre);
                     break;
             }
-            return View(productos.ToList());
+            //return View(productos.ToList());
+            int pageSize = 4;
+            int pageNumber = (pagina ?? 1);
+            return View(productos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Productos/Details/5

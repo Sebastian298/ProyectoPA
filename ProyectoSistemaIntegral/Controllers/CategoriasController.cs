@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using ProyectoSistemaIntegral.BD;
 using ProyectoSistemaIntegral.Models;
 
@@ -16,9 +17,11 @@ namespace ProyectoSistemaIntegral.Controllers
         private GestorContext db = new GestorContext();
 
         // GET: Categorias
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
-            return View(db.Categorias.ToList());
+            List<Categorias> categorias = db.Categorias.ToList();
+            PagedList<Categorias> model = new PagedList<Categorias>(categorias, page, pageSize);
+            return View(model);
         }
 
         // GET: Categorias/Details/5

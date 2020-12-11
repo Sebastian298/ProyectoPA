@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using ProyectoSistemaIntegral.BD;
 using ProyectoSistemaIntegral.Models;
 
@@ -16,11 +17,19 @@ namespace ProyectoSistemaIntegral.Controllers
         private GestorContext db = new GestorContext();
 
         // GET: Proveedores
-        public ActionResult Index(string strOrdenamiento, string strBusqueda)
+        public ActionResult Index(string strOrdenamiento,string currentFilter, string strBusqueda,int? pagina)
         {
             ViewBag.CurrentSort = strOrdenamiento;
             ViewBag.NombreSortParm = String.IsNullOrEmpty(strOrdenamiento) ? "nombre_desc" : "";
             ViewBag.CorreoSortParm = strOrdenamiento == "Correo" ? "correo_desc" : "Correo";
+
+            if (strBusqueda != null)
+            {
+                pagina = 1;
+            }
+            else
+                strBusqueda = currentFilter;
+
             var proveedores = db.Proveedores.AsEnumerable();
             proveedores = from s in db.Proveedores
                         select s;
@@ -43,7 +52,9 @@ namespace ProyectoSistemaIntegral.Controllers
                     proveedores = proveedores.OrderBy(s => s.Nombre);
                     break;
             }
-            return View(proveedores.ToList());
+            int pageSize = 3;
+            int pageNumber = (pagina ?? 1);
+            return View(proveedores.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Proveedores/Details/5

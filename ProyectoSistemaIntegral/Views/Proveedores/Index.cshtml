@@ -1,4 +1,8 @@
-﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Proveedores>
+﻿
+
+@model PagedList.IPagedList<ProyectoSistemaIntegral.Models.Proveedores>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -24,13 +28,13 @@
                     @Html.ActionLink("Nombre", "Index", new { strOrdenamiento = ViewBag.NombreSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Direccion)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Direccion)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CodigoPostal)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().CodigoPostal)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Telefono)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Telefono)
                 </th>
                 <th>
                     @Html.ActionLink("Correo Electronico", "Index", new { strOrdenamiento = ViewBag.CorreoSortParm })
@@ -66,5 +70,10 @@
 
         </table>
 
+
     </div>
 </div>
+ Mostrando @Model.FirstItemOnPage a @Model.LastItemOnPage de @Model.TotalItemCount Productos
+
+@Html.PagedListPager(Model, pagina => Url.Action("Index",
+    new { pagina, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

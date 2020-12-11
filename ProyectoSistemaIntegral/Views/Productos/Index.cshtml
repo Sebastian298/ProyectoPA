@@ -1,4 +1,7 @@
-﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Productos>
+﻿@*@model IEnumerable<ProyectoSistemaIntegral.Models.Productos>*@
+@model PagedList.IPagedList<ProyectoSistemaIntegral.Models.Productos>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -22,19 +25,19 @@
             <tr>
 
                 <th>
-                    @Html.DisplayNameFor(model => model.Categorias.Nombre)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Categorias.Nombre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Proveedores.Nombre)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Proveedores.Nombre)
                 </th>
                 <th>
                     @Html.ActionLink("Nombre Producto", "Index", new { strOrdenamiento = ViewBag.NombreSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Descripcion)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Descripcion)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Precio)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Precio)
                 </th>
                 <th>
                     @Html.ActionLink("Fecha Ingreso", "Index", new { strOrdenamiento = ViewBag.DateSortParm })
@@ -74,12 +77,16 @@
             }
 
         </table>
-        <div class="col col-md-12 mt-5">
+        <div class="col col-md-12">
+            Mostrando @Model.FirstItemOnPage a @Model.LastItemOnPage de @Model.TotalItemCount Productos
+
+            @Html.PagedListPager(Model, pagina => Url.Action("Index",
+                new { pagina, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
             <h5>Generar reporte del día</h5>
             @Html.ActionLink("Generar Reporte", "Print", new { @class = "btn btn-primary", role = "button" })
         </div>
-       
+
 
     </div>
 </div>
-<br />

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ProyectoSistemaIntegral.Models.Categorias>
+﻿@model PagedList.IPagedList<ProyectoSistemaIntegral.Models.Categorias>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +15,7 @@
         <table class="table table-hover">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Nombre)
                 </th>
                 <th>Acciones</th>
             </tr>
@@ -33,5 +35,7 @@
             }
 
         </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+        Mostrando @Model.FirstItemOnPage a @Model.LastItemOnPage de @Model.TotalItemCount Categorias
     </div>
 </div>

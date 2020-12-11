@@ -20,7 +20,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FechaVenta)
                 </th>
-                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Productos.Precio)
+                </th>
+                <th>Acciones</th>
             </tr>
 
             @foreach (var item in Model)
@@ -31,6 +34,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FechaVenta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=>item.Productos.Precio)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.VentaID }, new { @class = "btn btn-warning", role = "button" }) |
