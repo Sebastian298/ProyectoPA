@@ -29,6 +29,7 @@ namespace ProyectoSistemaIntegral.Controllers
             }
             else
                 strBusqueda = currentFilter;
+            
             var ventas = db.Ventas.AsEnumerable();
             ventas = from v in db.Ventas
                      select v;

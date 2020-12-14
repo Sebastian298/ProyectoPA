@@ -87,7 +87,6 @@ C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\ob
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.csproj.CopyComplete
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.dll
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.pdb
-C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.csprojAssemblyReference.cache
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Modelos_Productos_Ventas_Proveedores_Categorias.resources
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.csproj.GenerateResource.cache
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.Migrations.Modificacion_Fecha_Ventas.resources
@@ -100,3 +99,4 @@ C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bi
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.Mvc.dll
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.xml
 C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\bin\PagedList.Mvc.xml
+C:\Users\Usuario\source\repos\ProyectoSistemaIntegral\ProyectoSistemaIntegral\obj\Debug\ProyectoSistemaIntegral.csprojAssemblyReference.cache
