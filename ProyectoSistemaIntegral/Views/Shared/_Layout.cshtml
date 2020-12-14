@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - Sistema Integral de productos</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://kit.fontawesome.com/8b850b0e85.js" crossorigin="anonymous"></script>
@@ -31,7 +31,6 @@
                 </li>
 
             </ul>
-            <i class="fas fa-window-close offset-8" id="closeBtn"></i>
         </div>
     </nav>
     <div class="container body-content">
@@ -46,11 +45,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script>
-        closeBtn.addEventListener("click", function () {
-            window.close();
-        });
-  
-    </script>
 </body>
 </html>
